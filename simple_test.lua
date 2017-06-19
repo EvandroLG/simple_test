@@ -3,9 +3,22 @@
 -- https://github.com/evandrolg
 -- License: MIT
 
-local asserts = {
+local assertions = {
   equal = function(a, b)
     assert(a == b)
+  end,
+
+  throw = function(message, method, params)
+    local raised_error = false
+
+    xpcall(function()
+      method(table.unpack(params))
+    end, function(err)
+      raised_error = true
+      assert(string.find(err, message))
+    end)
+
+    if not raised_error then error('should throw error') end
   end
 }
 
@@ -13,10 +26,10 @@ local format = string.format
 
 local function test(name, func)
   xpcall(function()
-    func(asserts)
-      print(format('[pass] %s', name))
-    end, function(err)
-      print(format('[fail] %s : %s', name, err))
+    func(assertions)
+    print(format('[pass] %s', name))
+  end, function(err)
+    print(format('[fail] %s : %s', name, err))
   end)
 end
 
