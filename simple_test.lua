@@ -8,6 +8,10 @@ local assertions = {
     assert(a == b)
   end,
 
+	not_equal = function(a, b)
+		assert(a != b)
+	end,
+
   throw = function(message, method, params)
     local raised_error = false
 
