@@ -29,9 +29,9 @@ local assertions = {
 local format = string.format
 
 local function test(name, func)
-	xpcall(function()
-		func(assertions)
-		print(format('[pass] %s', name))
+  xpcall(function()
+	  func(assertions)
+	  print(format('[pass] %s', name))
 	end, function(err)
     print(format('[fail] %s : %s', name, err))
   end)
