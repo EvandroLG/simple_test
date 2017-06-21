@@ -47,9 +47,9 @@ local format = string.format
 local function test(name, callback)
   xpcall(function()
     callback(assertions)
-    print(format('[pass] %s', name))
+    print(format('%s[pass]%s %s', '\27[32m', '\27[0m', name))
   end, function(err)
-    print(format('[fail] %s : %s', name, err))
+    print(format('%s[fail]%s %s : %s','\27[31m', '\27[0m', name, err))
   end)
 end
 
