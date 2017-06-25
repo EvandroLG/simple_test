@@ -14,11 +14,11 @@ local assertions = {
 
   ok = function(a)
     assert(a)
-  end
+  end,
 
   not_ok = function(a)
     assert(not a)
-  end
+  end,
 
   throw = function(message, method, params)
     local raised_error = false
