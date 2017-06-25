@@ -12,6 +12,14 @@ local assertions = {
     assert(a ~= b)
   end,
 
+  ok = function(a)
+    assert(a)
+  end
+
+  not_ok = function(a)
+    assert(not a)
+  end
+
   throw = function(message, method, params)
     local raised_error = false
 
