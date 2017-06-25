@@ -50,6 +50,7 @@ local function test(name, callback)
     print(format('%s[pass]%s %s', '\27[32m', '\27[0m', name))
   end, function(err)
     print(format('%s[fail]%s %s : %s','\27[31m', '\27[0m', name, err))
+    os.exit(1)
   end)
 end
 
