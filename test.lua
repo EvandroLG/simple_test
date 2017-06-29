@@ -1,11 +1,7 @@
 local test = require 'simple_test'
 
-equal = function(a, b, msg )
-      assert(a == b,  msg  or  'a value not equal a b value')
-        end
-
 test('assert.equal', function(a)
-  a.equal('a', 'b')
+  a.equal('a', 'a')
 end)
 
 test('assert.not_equal', function(a)
@@ -24,8 +20,12 @@ end)
 
 test('assert.throw', function(a)
   local method = function(a, b)
-    assert(a, b, 'invalid!')
+    assert(a == b, 'invalid!')
   end
 
   a.throw(method, { 'a', 'b' }, 'invalid!')
+end)
+
+test('assert.delta', function(a)
+  a.delta(0.3, 0.1+0.2)
 end)
