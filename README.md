@@ -27,7 +27,7 @@ Checks if `test` is true.
 * assert.<code>not_ok(test, [failure_message])</code><br>
 Checks if `test` is false.
 
-* assert.<code>equal(expected, actual, [failure_message])<code><br>
+* assert.<code>equal(expected, actual, [failure_message])</code><br>
 Checks if `expected` is equal `actual`.
 
 * assert.<code>not_equal(expected, actual, [failure_message])</code><br>
