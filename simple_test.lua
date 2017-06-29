@@ -24,7 +24,7 @@ local assertions = {
   end,
 
   ok = function(a, msg)
-    local message = msg or format('%s is not true', a)
+    local message = msg or format('%s is not true', tostring(a))
     assert(a, message)
   end,
 
