@@ -29,7 +29,7 @@ local assertions = {
   end,
 
   not_ok = function(a, msg)
-    local message = msg or format('%s is not false', a)
+    local message = msg or format('%s is not false', tostring(a))
     assert(not a, message)
   end,
 
