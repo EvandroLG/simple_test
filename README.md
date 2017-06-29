@@ -30,11 +30,11 @@ Checks if `test` is false.
 * assert.<code>equal(expected, actual, [failure_message])<code><br>
 Checks if `expected` is equal `actual`.
 
-* assert.<code>not_equal(expected, actual, [failure_message])<code><br>
+* assert.<code>not_equal(expected, actual, [failure_message])</code><br>
 Checks if `expected` is not equal `actual`.
 
-* assert.<code>throw(function, params, [raised_message], [failure_message])<code><br>
+* assert.<code>throw(function, params, [raised_message], [failure_message])</code><br>
 Checks if a `function` throws an exception and optionally compare the throw error.
 
-* assert.<code>delta(expected_float, actual_float, [delta], [failure_message])<code><br>
+* assert.<code>delta(expected_float, actual_float, [delta], [failure_message])</code><br>
 Checks if `expected_float` and `actual_float` are equal within optional `detlta` tolerance
