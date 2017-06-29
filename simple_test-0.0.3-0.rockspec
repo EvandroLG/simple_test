@@ -1,13 +1,13 @@
 package = 'simple_test'
-version = '0.0.3-0'
+version = '0.0.4-0'
 
 source = {
   url = 'git://github.com/evandrolg/simple_test.git',
-  tag = 'v0.0.3'
+  tag = 'v0.0.4'
 }
 
 description = {
-  summary = 'An easy-to-use Lua unit test suite',
+  summary = 'A powerful, minimalist and easy-to-use Lua unit testing framework.',
   homepage = 'https://github.com/EvandroLG/simple_test',
   maintainer = 'Evandro Leopoldino Gonçalves (@evandrolg) <evandrolgoncalves@gmail.com>',
   license = 'MIT <http://opensource.org/licenses/MIT>'
