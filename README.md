@@ -1,6 +1,9 @@
 # simple_test
 A powerful, minimalist and easy-to-use Lua unit testing framework.
 
+[![Build
+Status](https://travis-ci.org/EvandroLG/simple_test.svg?branch=master)](https://travis-ci.org/EvandroLG/simple_test)
+
 ## Installation
 To install `simple_test`, simply run:
 ```sh
