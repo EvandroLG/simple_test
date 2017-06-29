@@ -41,3 +41,8 @@ Checks if a `function` throws an exception and optionally compare the throw erro
 
 * assert.<code>delta(expected_float, actual_float, [delta], [failure_message])</code><br>
 Checks if `expected_float` and `actual_float` are equal within optional `detlta` tolerance
+
+## Author
+|[![@evandrolg](https://avatars3.githubusercontent.com/u/444054?v=3&amp;s=96)](https://github.com/evandrolg)|
+|:---:|
+|[@evandrolg](http://www.github.com/evandrolg)|
