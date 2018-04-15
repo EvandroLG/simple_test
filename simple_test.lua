@@ -13,7 +13,8 @@ local colors = {
 local assertions = {
   equal = function(a, b, msg)
     local message = msg or format('%s%s%s expected but was %s%s%s',
-          colors.green[1], a, colors.green[2], colors.red[1], b, colors.red[2])
+          colors.green[1], tostring(a), colors.green[2],
+          colors.red[1], tostring(b), colors.red[2])
 
     assert(a == b, message)
   end,
