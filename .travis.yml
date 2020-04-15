@@ -1,6 +1,3 @@
-script:
-  - lua test.lua
-
 language: python
 sudo: false
 
