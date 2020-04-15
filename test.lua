@@ -1,3 +1,4 @@
+package.path = "./src/?.lua;" .. package.path
 local test = require 'simple_test'
 
 test('assert.equal', function(a)
@@ -28,4 +29,28 @@ end)
 
 test('assert.delta', function(a)
   a.delta(0.3, 0.1+0.2)
+end)
+
+test('assert.deep_equal', function(a)
+  local obj1 = {
+    favorites = {
+      languages = {
+        'lua',
+        'javascript',
+        'c'
+      }
+    }
+  }
+
+  local obj2 = {
+    favorites = {
+      languages = {
+        'lua',
+        'javascript',
+        'c'
+      }
+    }
+  }
+
+  a.deep_equal(obj1, obj2)
 end)
