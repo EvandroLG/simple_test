@@ -20,9 +20,9 @@ dependencies = {
 build = {
   type = "builtin",
   modules = {
-    ['simple_test'] = "src/simple_test.lua"
-    ['simple_test.utils'] = "src/utils.lua"
-    ['simple_test.assertions'] = "src/assertions.lua"
+    ['simple_test'] = "src/simple_test.lua",
+    ['simple_test.utils'] = "src/utils.lua",
+    ['simple_test.assertions'] = "src/assertions.lua",
     ['simple_test.colors'] = "src/colors.lua"
   }
 }
