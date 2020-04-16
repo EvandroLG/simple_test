@@ -1,5 +1,6 @@
 package.path = "./src/?.lua;" .. package.path
 local test = require 'simple_test'
+local utils = require 'utils'
 
 test('assert.equal', function(a)
   a.equal('a', 'a')
@@ -53,4 +54,11 @@ test('assert.deep_equal', function(a)
   }
 
   a.deep_equal(obj1, obj2)
+end)
+
+test('utils.is_deep_equal', function(a)
+  a.not_ok(is_deep_equal('a', 'b'))
+  a.ok(is_deep_equal('a', 'a'))
+  a.not_ok(is_deep_equal({ a = { 'b' } }, { a = { 'c' } }))
+  a.ok(is_deep_equal({ a = { 'b' } }, { a = { 'b' } }))
 end)

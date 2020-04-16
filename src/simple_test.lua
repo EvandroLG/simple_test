@@ -1,8 +1,3 @@
--- simple_test
--- author: Evandro Leopoldino Gonçalves <evandrolgoncalves@gmail.com>
--- https://github.com/evandrolg
--- License: MIT
-
 local assertions = require('./assertions')
 local colors = require('./colors')
 local format = string.format
