@@ -30,17 +30,20 @@ Checks if `test` is true.
 * assert.<code>not_ok(test, [failure_message])</code><br>
 Checks if `test` is false.
 
-* assert.<code>equal(expected, actual, [failure_message])</code><br>
-Checks if `expected` is equal `actual`.
+* assert.<code>equal(actual, expected, [failure_message])</code><br>
+Tests if `actual` is equal `expected`.
 
-* assert.<code>not_equal(expected, actual, [failure_message])</code><br>
-Checks if `expected` is not equal `actual`.
+* assert.<code>not_equal(actual, expected, [failure_message])</code><br>
+Checks if `actual` is not equal `expected`.
 
 * assert.<code>throw(function, params, [raised_message], [failure_message])</code><br>
 Checks if a `function` throws an exception and optionally compare the throw error.
 
-* assert.<code>delta(expected_float, actual_float, [delta], [failure_message])</code><br>
-Checks if `expected_float` and `actual_float` are equal within optional `detlta` tolerance
+* assert.<code>delta(actual_float, expected_float, [delta], [failure_message])</code><br>
+Checks if `actual_float` and `expected_float` are equal within optional `detlta` tolerance
+
+* assert.<code>deep_equal(actual, expected, [failure_message])</code><br>
+Tests for deep equality between the `actual` and `expected` parameters.
 
 ## Author
 |[![@evandrolg](https://avatars3.githubusercontent.com/u/444054?v=3&amp;s=96)](https://github.com/evandrolg)|
