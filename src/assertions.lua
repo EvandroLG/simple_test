@@ -58,7 +58,7 @@ local assertions = {
   end,
 
   deep_equal = function(a, b, msg)
-    local message = msg
+    local message = msg or format('Expected values to be strictly deep-equal')
     assert(utils.is_deep_equal(a, b), message)
   end
 }
