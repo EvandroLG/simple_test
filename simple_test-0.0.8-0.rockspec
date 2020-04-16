@@ -1,5 +1,5 @@
 package = 'simple_test'
-version = '0.0.7-0'
+version = '0.0.8-0'
 
 source = {
   url = 'git://github.com/evandrolg/simple_test.git',
@@ -20,9 +20,9 @@ dependencies = {
 build = {
   type = "builtin",
   modules = {
-    ['simple_test'] = "src/simple_test.lua",
-    ['simple_test.utils'] = "src/utils.lua",
-    ['simple_test.assertions'] = "src/assertions.lua",
-    ['simple_test.colors'] = "src/colors.lua"
+    ["simple_test"] = "src/simple_test.lua",
+    ["simple_test.utils"] = "src/utils.lua",
+    ["simple_test.assertions"] = "src/assertions.lua",
+    ["simple_test.colors"] = "src/colors.lua"
   }
 }
