@@ -1,5 +1,5 @@
-local utils = require('./utils')
-local colors = require('./colors')
+local utils = require 'simple_test.utils'
+local colors = require 'simple_test.colors'
 local format = string.format
 
 local assertions = {

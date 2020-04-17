@@ -1,5 +1,5 @@
-local assertions = require('./assertions')
-local colors = require('./colors')
+local assertions = require 'simple_test.assertions'
+local colors = require 'simple_test.colors'
 local format = string.format
 
 local function test(name, callback)
