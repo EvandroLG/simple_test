@@ -9,6 +9,7 @@ env:
 before_install:
   - pip install hererocks
   - hererocks lua_install -r^ --$LUA
+  - luarocks install simple_test
   - export PATH=$PATH:$PWD/lua_install/bin
 
 script:
