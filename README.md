@@ -40,7 +40,7 @@ Checks if `actual` is not equal `expected`.
 Checks if a `function` throws an exception and optionally compare the throw error.
 
 * assert.<code>delta(actual_float, expected_float, [delta], [failure_message])</code><br>
-Checks if `actual_float` and `expected_float` are equal within optional `detlta` tolerance
+Checks if `actual_float` and `expected_float` are equal within optional `delta` tolerance
 
 * assert.<code>deep_equal(actual, expected, [failure_message])</code><br>
 Tests for deep equality between the `actual` and `expected` parameters.
