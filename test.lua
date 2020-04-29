@@ -1,4 +1,3 @@
-package.path = "./src/?.lua;" .. package.path
 local test = require 'simple_test'
 local utils = require 'utils'
 
