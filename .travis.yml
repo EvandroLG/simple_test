@@ -15,7 +15,7 @@ install:
   - luarocks install simple_test
 
 script:
-  - lua ./test.lua
+  - make test
 
 notifications:
   email:
