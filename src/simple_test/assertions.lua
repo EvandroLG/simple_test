@@ -5,14 +5,14 @@ local format = string.format
 local assertions = {
   equal = function(a, b, msg)
     local message = msg or format('%s%s%s expected but was %s%s%s',
-          colors.green[1], tostring(a), colors.green[2],
-          colors.red[1], tostring(b), colors.red[2])
+          colors.green[1], tostring(b), colors.green[2],
+          colors.red[1], tostring(a), colors.red[2])
 
     assert(a == b, message)
   end,
 
   not_equal = function(a, b, msg)
-    local message = msg or format('%s expected to be different from %s', a, b)
+    local message = msg or format('%s expected to be different from %s', b, a)
     assert(a ~= b, message)
   end,
 
@@ -43,7 +43,7 @@ local assertions = {
     local diff = math.abs(a - b)
     delta = delta or 0.00001
     local message = msg or format('%s%s%s expected but was %s%s%s',
-          colors.green[1], a, colors.green[2], colors.red[1], b, colors.red[2])
+          colors.green[1], b, colors.green[2], colors.red[1], a, colors.red[2])
 
     if a == b then
       return true

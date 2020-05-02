@@ -28,7 +28,7 @@ test('assert.throw', function(a)
 end)
 
 test('assert.delta', function(a)
-  a.delta(0.3, 0.1+0.2)
+  a.delta(0.3, 0.1 + 0.2)
 end)
 
 test('assert.deep_equal', function(a)
