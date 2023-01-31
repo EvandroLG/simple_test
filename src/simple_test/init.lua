@@ -10,6 +10,7 @@ local function test(name, callback, expect_to_fail)
     else
       print(format('%s[passed unsuccessfully...]%s %s',
             colors.red[1], colors.red[2], name))
+      os.exit(1)
     end
   end, function(err)
     if not expect_to_fail then
