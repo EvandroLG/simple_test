@@ -19,7 +19,15 @@ test('assert.not_ok', function(a)
   a.not_ok(nil)
 end)
 
-test('assert.throw', function(a)
+test('assert.throw (no pattern)', function(a)
+  local method = function(a, b)
+    assert(a == b, 'invalid!')
+  end
+
+  a.throw(method, { 'a', 'b' })
+end)
+
+test('assert.throw (with pattern)', function(a)
   local method = function(a, b)
     assert(a == b, 'invalid!')
   end
@@ -63,3 +71,25 @@ test('utils.is_deep_equal', function(a)
   a.ok(is_deep_equal({ 'a', 'b', 'c', 'd' }, { 'a', 'b', 'c', 'd' }))
   a.not_ok(is_deep_equal({ 'a', 'b', 'c', 'd' }, { 'a', 'b', 'c', 'e' }))
 end)
+
+-- the following tests are expected to fail
+
+test('assert.throw (pattern not matched)', function(a)
+  local method = function(a, b)
+    assert(a == b, 'invalid!')
+  end
+
+  a.throw(method, { 'a', 'b' }, 'foo')
+end, true)
+
+test('assert.throw (does not throw)', function(a)
+  local method = function(a, b) end
+
+  a.throw(method, { 'a', 'b' })
+end, true)
+
+test('assert.throw (does not throw but still has pattern arg)', function(a)
+  local method = function(a, b) end
+
+  a.throw(method, { 'a', 'b' }, "foo")
+end, true)
