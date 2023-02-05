@@ -19,13 +19,41 @@ test('assert.not_ok', function(a)
   a.not_ok(nil)
 end)
 
-test('assert.throw', function(a)
+test('assert.throw (no pattern)', function(a)
+  local method = function(a, b)
+    assert(a == b, 'invalid!')
+  end
+
+  a.throw(method, { 'a', 'b' })
+end)
+
+test('assert.throw (with pattern)', function(a)
   local method = function(a, b)
     assert(a == b, 'invalid!')
   end
 
   a.throw(method, { 'a', 'b' }, 'invalid!')
 end)
+
+test('assert.throw (pattern not matched)', function(a)
+  local method = function(a, b)
+    assert(a == b, 'invalid!')
+  end
+
+  a.throw(method, { 'a', 'b' }, 'foo')
+end, true)
+
+test('assert.throw (does not throw)', function(a)
+  local method = function(a, b) end
+
+  a.throw(method, { 'a', 'b' })
+end, true)
+
+test('assert.throw (does not throw but still has pattern arg)', function(a)
+  local method = function(a, b) end
+
+  a.throw(method, { 'a', 'b' }, "foo")
+end, true)
 
 test('assert.delta', function(a)
   a.delta(0.3, 0.1 + 0.2)

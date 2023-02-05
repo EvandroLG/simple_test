@@ -26,17 +26,24 @@ local assertions = {
     assert(not a, message)
   end,
 
-  throw = function(method, params, raised_message, msg)
-    local raised_error = false
+  throw = function(method, params, raised_pattern, msg)
+    local raised_error = nil
+    local matched = false
 
     xpcall(function()
       method(table.unpack(params))
     end, function(err)
-      raised_error = true
-      assert(string.find(err, raised_message))
+      raised_error = err
+      if not raised_pattern or string.find(err, raised_pattern) then
+        matched = true
+      end
     end)
 
     if not raised_error then error(msg or 'should throw error') end
+    if not matched then
+      error(format("threw error '%s' but did not contain pattern '%s'",
+            raised_error, raised_pattern))
+    end
   end,
 
   delta = function(a, b, delta, msg)
