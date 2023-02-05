@@ -35,6 +35,26 @@ test('assert.throw (with pattern)', function(a)
   a.throw(method, { 'a', 'b' }, 'invalid!')
 end)
 
+test('assert.throw (pattern not matched)', function(a)
+  local method = function(a, b)
+    assert(a == b, 'invalid!')
+  end
+
+  a.throw(method, { 'a', 'b' }, 'foo')
+end, true)
+
+test('assert.throw (does not throw)', function(a)
+  local method = function(a, b) end
+
+  a.throw(method, { 'a', 'b' })
+end, true)
+
+test('assert.throw (does not throw but still has pattern arg)', function(a)
+  local method = function(a, b) end
+
+  a.throw(method, { 'a', 'b' }, "foo")
+end, true)
+
 test('assert.delta', function(a)
   a.delta(0.3, 0.1 + 0.2)
 end)
@@ -71,25 +91,3 @@ test('utils.is_deep_equal', function(a)
   a.ok(is_deep_equal({ 'a', 'b', 'c', 'd' }, { 'a', 'b', 'c', 'd' }))
   a.not_ok(is_deep_equal({ 'a', 'b', 'c', 'd' }, { 'a', 'b', 'c', 'e' }))
 end)
-
--- the following tests are expected to fail
-
-test('assert.throw (pattern not matched)', function(a)
-  local method = function(a, b)
-    assert(a == b, 'invalid!')
-  end
-
-  a.throw(method, { 'a', 'b' }, 'foo')
-end, true)
-
-test('assert.throw (does not throw)', function(a)
-  local method = function(a, b) end
-
-  a.throw(method, { 'a', 'b' })
-end, true)
-
-test('assert.throw (does not throw but still has pattern arg)', function(a)
-  local method = function(a, b) end
-
-  a.throw(method, { 'a', 'b' }, "foo")
-end, true)
