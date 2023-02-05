@@ -34,15 +34,20 @@ local assertions = {
       method(table.unpack(params))
     end, function(err)
       raised_error = err
+
       if not raised_pattern or string.find(err, raised_pattern) then
         matched = true
       end
     end)
 
-    if not raised_error then error(msg or 'should throw error') end
+    if not raised_error then
+      error(msg or 'should throw error')
+    end
+
     if not matched then
-      error(format("threw error '%s' but did not contain pattern '%s'",
-            raised_error, raised_pattern))
+      error(
+        format("threw error '%s' but did not contain pattern '%s'", raised_error, raised_pattern)
+      )
     end
   end,
 
