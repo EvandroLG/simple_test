@@ -91,3 +91,49 @@ test('utils.is_deep_equal', function(a)
   a.ok(is_deep_equal({ 'a', 'b', 'c', 'd' }, { 'a', 'b', 'c', 'd' }))
   a.not_ok(is_deep_equal({ 'a', 'b', 'c', 'd' }, { 'a', 'b', 'c', 'e' }))
 end)
+
+test('utils.is_deep_equal (reference cycles, different graph shape)', function(a)
+  -- structurally equivalent but nested table t is referenced twice in obj1,
+  -- but copied in obj2
+  local t = { d = "foo" }
+
+  local obj1 = {
+    a = { c = t },
+    b = t
+  }
+
+  local obj2 = {
+    a = { c = { d = "foo" } },
+    b = { d = "foo" }
+  }
+
+  a.ok(is_deep_equal(obj1, obj2))
+end)
+
+test("utils.is_deep_equal (reference cycles, same graph shape)", function(a)
+  -- tables both contain a self reference to the starting table. they are completely
+  -- separated graphs
+  local table_a1 = {}
+  local table_b1 = {}
+  table_a1.b = table_b1
+  table_b1.a = table_a1
+
+  local table_a2 = {}
+  local table_b2 = {}
+  table_a2.b = table_b2
+  table_b2.a = table_a2
+
+  a.ok(is_deep_equal(table_a1, table_a2))
+end)
+
+test("utils.is_deep_equal (reference cycles, connected graphs)", function(a)
+  -- tables form a simple reference cycle and are part of the same connected
+  -- graph. because it is a symmetrical graph, they are still structurally
+  -- equivalent
+  local table_a = {}
+  local table_b = {}
+  table_a.ref = table_b
+  table_b.ref = table_a
+
+  a.ok(is_deep_equal(table_a, table_b))
+end)
