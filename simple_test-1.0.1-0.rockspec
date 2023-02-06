@@ -1,9 +1,9 @@
 package = 'simple_test'
-version = '1.0.1-0'
+version = '1.0.2-0'
 
 source = {
   url = 'git://github.com/evandrolg/simple_test.git',
-  tag = 'v1.0.1'
+  tag = 'v1.0.2'
 }
 
 description = {
